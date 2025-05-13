@@ -1,3 +1,7 @@
+<?php
+include('../components/body.php');
+include('../components/navbar.php');
+?>
 <main class="uppercase mt-22 px-8.5">
   <table class="w-full poppins">
     <thead class="[&>tr>th]:px-4 text-left [&>tr>th]:pb-22">
