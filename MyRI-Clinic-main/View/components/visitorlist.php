@@ -3,7 +3,7 @@
   <table class="w-full poppins">
     <thead class="[&>tr>th]:px-4 text-left [&>tr>th]:pb-22">
       <tr class="">
-      
+
         <th>ID</th>
         <th>FULL NAME</th>
         <th>Purpose of VISIT</th>
@@ -38,13 +38,8 @@
             echo "</tr>";
           }
         } else {
-          echo "<tr class=''>";
-          echo "<td>" . "N/A" . "</td>";
-          echo "<td>" . "N/A" . "</td>";
-          echo "<td>" . "N/A" . "</td>";
-          echo "<td>" . "N/A" . "</td>";
-          echo "<td>" . "N/A" . "</td>";
-          echo "<td>" . "N/A" . "</td>";
+          echo "<tr '>";
+          echo "<td colspan='7' class='text-center bg-[#ffc5c541]'>" . "No data available." . "</td>";
           echo "</tr>";
         }
       } catch (mysqli_sql_exception $e) {

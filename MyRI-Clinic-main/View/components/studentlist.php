@@ -20,96 +20,91 @@ include('../components/navbar.php');
     <tbody
       class="text-left [&>tr]:odd:bg-[#a8a8a829] [&>tr>td]:px-4 [&>tr>td]:py-4.5">
 
-      <?php 
+      <?php
       include('../../config/database.php');
-        if (isset($_POST['submit'])) {
-            $fullname = $_POST['fullname'];
+      if (isset($_POST['submit'])) {
+        $fullname = $_POST['fullname'];
 
-            try {
-                $stmt = $conn->prepare("SELECT * FROM medicalform WHERE fullname = ?");
-                $stmt->bind_param("s", $fullname);
-                $stmt->execute();
-                $result = $stmt->get_result();
+        try {
+          $stmt = $conn->prepare("SELECT * FROM medicalform WHERE fullname = ?");
+          $stmt->bind_param("s", $fullname);
+          $stmt->execute();
+          $result = $stmt->get_result();
 
-                if ($result->num_rows > 0) {
-                    $row = $result->fetch_assoc();
-                  
-                    $_id = htmlspecialchars($row['id']);
-                    echo "<tr>";
-                    echo "<td>" . htmlspecialchars($row['id']) . "</td>";
-                    echo "<td>" . htmlspecialchars($row['fullname']) . "</td>";
-                    echo "<td>" . htmlspecialchars($row['grade_section']) . "</td>";
-                    echo "<td>" . htmlspecialchars($row['gender']) . "</td>";
-                    echo "<td>" . htmlspecialchars($row['parent']) . "</td>";
-                    echo "<td>";
-                    echo   "<form action='../pages/medicalinformation.php' method='POST'>
+          if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+
+            $_id = htmlspecialchars($row['id']);
+            echo "<tr>";
+            echo "<td>" . htmlspecialchars($row['id']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['fullname']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['grade_section']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['gender']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['parent']) . "</td>";
+            echo "<td>";
+            echo   "<form action='../pages/medicalinformation.php' method='POST'>
                         <input type='hidden' name='id' value='" . $_id . "'>
                         <button type='submit' name='submit'><span style='color: green;'>View</span></button>
                         </form>
                         </td>";
-                    echo "<td><form action='../../Controller/delete.php' method='POST'>
+            echo "<td><form action='../../Controller/delete.php' method='POST'>
                         <input type='hidden' name='id' value='" . $_id . "'>
                         <button type='submit' name='submit'><span style='color: red;'>Delete</span></button>
                         </form>
                         </td>";
-                        
-                } else {
-                    echo "<script>alert('No User Found');
+          } else {
+            echo "<script>alert('No User Found');
                             window.location.href = '../view/pages/studentlist.php';
                         </script>";
-                }
-            } catch (mysqli_sql_exception $e) {
-                echo "Error: " . $e->getMessage();
-            }
-        }else{
-            include("../../config/database.php");
+          }
+        } catch (mysqli_sql_exception $e) {
+          echo "Error: " . $e->getMessage();
+        }
+      } else {
+        include("../../config/database.php");
 
-            try {
-              $query = "SELECT * FROM medicalform";
-              $result = $conn->query($query);
+        try {
+          $query = "SELECT * FROM medicalform";
+          $result = $conn->query($query);
 
-              if ($result->num_rows > 0) {
+          if ($result->num_rows > 0) {
 
-                while ($row = $result->fetch_assoc()) {
-                  $_id = htmlspecialchars($row['id']);
-                  echo "<tr>";
-                  echo "<td>" . htmlspecialchars($row['id']) . "</td>";
-                  echo "<td>" . htmlspecialchars($row['fullname']) . "</td>";
-                  echo "<td>" . htmlspecialchars($row['grade_section']) . "</td>";
-                  echo "<td>" . htmlspecialchars($row['gender']) . "</td>";
-                  echo "<td>" . htmlspecialchars($row['parent']) . "</td>";
-                  echo "<td>
+            while ($row = $result->fetch_assoc()) {
+              $_id = htmlspecialchars($row['id']);
+              echo "<tr>";
+              echo "<td>" . htmlspecialchars($row['id']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['fullname']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['grade_section']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['gender']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['parent']) . "</td>";
+              echo "<td>
               <form action='../pages/medicalinformation.php' method='POST'>
                   <input type='hidden' name='id' value='" . $_id . "'>
                   <button type='submit' name='submit'><span style='color: green;'>View</span></button>
               </form>
             </td>";
-                  echo "<td><form action='../../Controller/delete.php' method='POST'>
+              echo "<td><form action='../../Controller/delete.php' method='POST'>
                   <input type='hidden' name='id' value='" . $_id . "'>
                   <button type='submit' name='submit'><span style='color: red;'>Delete</span></button>
               </form>
             </td>";
 
-                  echo "</tr>";
-                }
-              } else {
-                echo "<tr class=''>";
-                echo "<td>" . "N/A" . "</td>";
-                echo "<td>" . "N/A" . "</td>";
-                echo "<td>" . "N/A" . "</td>";
-                echo "<td>" . "N/A" . "</td>";
-                echo "<td>" . "N/A" . "</td>";
-                echo "</tr>";
-              }
-            } catch (mysqli_sql_exception $e) {
-              echo "Error: " . $e->getMessage();
+              echo "</tr>";
             }
+          } else {
+            echo "<tr '>";
+            echo "<td colspan='7' class='text-center bg-[#ffc5c541]'>" . "No data available." . "</td>";
+            echo "</tr>";
+          }
+        } catch (mysqli_sql_exception $e) {
+          echo "Error: " . $e->getMessage();
         }
-      
+      }
+
       ?>
       <!-- <?php
-      
-      ?> -->
+
+            ?> -->
 
 
     </tbody>

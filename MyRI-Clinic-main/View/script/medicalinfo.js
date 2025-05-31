@@ -3,7 +3,6 @@ const save_cancel_btn = document.getElementById("save_cancel_btn");
 const cancel_mode = document.getElementById("cancel_mode");
 const save_mode = document.getElementById("save_mode");
 
-
 let isEditing = false;
 
 edit_mode.addEventListener("click", (e) => {
