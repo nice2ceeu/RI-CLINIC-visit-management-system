@@ -1,5 +1,3 @@
-
-
 <?php
 session_start();
 
@@ -22,7 +20,7 @@ if (isset($_SESSION['username'])) {
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body class="overflow-hidden flex items-center justify-center w-lvw h-dvh">
+<body class="flex items-center justify-center w-lvw h-dvh">
   <form
     action="../../Controller/login.php"
     method="POST"
@@ -53,10 +51,16 @@ if (isset($_SESSION['username'])) {
       class="poppins py-3.5 px-4.5 w-[80%] p-[8px] mt-3 rounded-lg bg-[#06118E] text-amber-50 hover:bg-[#2532CA] shadow-2xl duration-[0.1s] cursor-pointer">
       SIGN IN
     </button>
-
+    <section class="relative w-full text-center">
+      <hr class="absolute  top-3 w-30 md:w-30">
+      <p class="inline px-2  z-20">OR</p>
+      <hr class="absolute right-0  top-3 w-30 ">
+    </section>
+    <p>Don't Have An Account? <a href="./signIn.php" class="text-blue-500">Sign up</a></p>
   </form>
+
   <img
-    class="absolute h-[80rem] object-cover w-full"
+    class="absolute h-dvh object-cover w-full"
     src="../public/ri-img.png "
     alt="" />
 </body>

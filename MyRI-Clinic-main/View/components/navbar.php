@@ -61,8 +61,29 @@
       </a>
 
       <!-- student info -->
-      
+
+
+      <a
+        class="flex gap-x-4 px-3.5 py-3.5 leading-6 hover:bg-[#ffffff1f] rounded-lg md:flex md:justify-center lg:justify-start"
+        href="../pages/inventory.php"><img src="../assets/icons/inventory-icon.svg" alt="inforamation-icon" />
+        <p class="md:hidden lg:block">Inventory</p>
+      </a>
+
+
+      <section class="mt-auto">
+
+        <hr class="text-[#f5f5f565]  w-full">
+        <a
+          class="flex gap-x-4 px-3.5 py-3.5 leading-6 rounded-lg md:flex md:justify-center lg:justify-start mt-3 hover:bg-[#ffffff1f]"
+          href="">
+          <img src="../assets/icons/user-icon.svg" alt="visitor-icon" />
+          <p class="md:hidden lg:block">Admin</p>
+        </a>
+      </section>
     </section>
+
+
+
     <section
       class="rounded-bl-2xl md:rounded-none row-start-3 bg-secondary poppins uppercase px-5 py-3.5 flex text-lg w-full items-center gap-x-5">
 

@@ -1,67 +1,96 @@
 <?php
-session_start();
-
-if (!isset($_SESSION['username'])) {
-  header("Location: index.php");
-  exit();
-}
-?>
-<?php
 include('../components/body.php');
-include('../components/navbar.php');
 ?>
 
 
-<?php
-include("../../config/database.php");
+<!-- navvvvvvvvvvv -->
+<header
+  class="bg-primary flex krona text-3xl justify-between px-7 py-4.5 items-center text-white md:hidden">
+  <img
+    id="home-btn"
+    class="size-12 cursor-pointer"
+    src="../assets/icons/school-icon.svg"
+    alt="" />
 
-if (isset($_POST['submit'])) {
-  $id = $_POST['id'];
+  <h1 id="home-btn" class="cursor-pointer">MyRi Clinic</h1>
 
-  $stmt = $conn->prepare("SELECT * FROM medicalform WHERE id = ?");
-  $stmt->bind_param("i", $id);
-  $stmt->execute();
-  $result = $stmt->get_result();
+  <img
+    id="menu-btn"
+    class="z-21 size-9 cursor-pointer invert"
+    src="../assets/icons/menu-icon.svg"
+    alt="menu-btn" />
+</header>
+<nav
+  id="SideBar"
+  class="z-20 w-62 md:sm:w-24 lg:w-72 md:h-dvh xl:lg:w-82 translate-x-[50rem]  drop-shadow-2xl md:drop-shadow-none h-dvh md:translate-x-0 fixed duration-500 right-0 top-[-17px] md:top-0 md:left-0 md:block">
+  <main
+    class="grid text-white h-[70%] grid-rows-[100px_1fr_60px] md:h-dvh ">
+    <section
+      class="row-start-1 invisible md:visible cursor-pointer shadow-2xl bg-secondary flex items-center justify-center text-2xl krona">
+      <img
+        class="md:block size-12 lg:hidden"
+        src="../assets/icons/school-icon.svg"
+        alt="school-img" />
+      <h1 class="md:hidden text-3xl lg:block">MyRi Clinic</h1>
+    </section>
 
-  if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $fullname = htmlspecialchars($row['fullname']);
-    $grade_section = htmlspecialchars($row['grade_section']);
-    $birthdate = htmlspecialchars($row['birthdate']);
-    $age = htmlspecialchars($row['age']);
-    $gender = htmlspecialchars($row['gender']);
-    $height = htmlspecialchars($row['height']);
-    $weight = htmlspecialchars($row['_weight']);
-    $address = htmlspecialchars($row['_address']);
-    $parent = htmlspecialchars($row['parent']);
-    $contact = htmlspecialchars($row['contact']);
-    $asthma = htmlspecialchars($row['asthma']);
-    $epilepsy = htmlspecialchars($row['epilepsy']);
-    $food = htmlspecialchars($row['food']);
-    $foodcause = htmlspecialchars($row['foodcause']);
-    $insect = htmlspecialchars($row['insect']);
-    $insectcause = htmlspecialchars($row['insectcause']);
-  }
-}
-?>
+    <!-- navlinks -->
+    <section
+      class="poppins uppercase row-start-2 bg-primary flex gap-y-3 flex-col  px-3 py-4 text-lg">
+      <!-- studnet info -->
+      <a
+        class="flex gap-x-4 px-3.5 py-3.5 leading-6 bg-[#ffffff1f] rounded-lg md:flex md:justify-center lg:justify-start"
+        href="../pages/userpage.php">
+        <img src="../assets/icons/stud-info-icon.svg" alt="visitor-icon" />
+        <p class="md:hidden lg:block">student inforamation</p>
+      </a>
+      <section class="mt-auto ">
+
+        <hr class="text-[#f5f5f565]  w-full">
+        <a
+          class="flex gap-x-4 px-3.5 py-3.5 leading-6 rounded-lg md:flex md:justify-center lg:justify-start mt-3 hover:bg-[#ffffff1f]"
+          href="../pages/userprofile.php">
+          <img src="../assets/icons/user-icon.svg" alt="visitor-icon" />
+          <p class="md:hidden lg:block">Israel Wembyawa</p>
+        </a>
+      </section>
+    </section>
+    <section
+      class="rounded-bl-2xl md:rounded-none row-start-3 bg-secondary poppins uppercase px-5 py-3.5 flex text-lg w-full items-center gap-x-5">
+
+      <!-- logout -->
+      <form action="../../Controller/logout.php" method="POST">
+        <button
+          id="logout-btn"
+          type="submit"
+          name="submit"
+          class="flex gap-x-4 px-3.5 py-3.5 leading-6 rounded-lg md:flex md:justify-center lg:justify-start cursor-pointer"
+          href="../pages/index.php"><img src="../assets/icons/exit-icon.svg" alt="inforamation-icon" />
+          <p class="md:hidden lg:block">logout</p>
+        </button>
+      </form>
+    </section>
+  </main>
+</nav>
+<!-- navvvvvvvvvvv -->
 
 <section class="md:sm:ml-24 lg:ml-72 md:h-dvh xl:lg:ml-82">
+
   <section class="relative py-7.5 pt-12">
     <h1 class="krona uppercase bg-white lg:ml-12 px-5 inline z-20 text-3xl">
-      Medical form
+      Israel Wembyawa
     </h1>
     <hr class="absolute z-[-1] w-full top-17" />
   </section>
 
+  <section class="relative py-7.5 pt-12">
+    <h1 class="krona uppercase bg-white lg:ml-12 px-5 inline z-20 text-3xl">
+      STUDENT MEDICAL FORM
+    </h1>
+    <hr class="absolute z-[-1] w-full top-17" />
+  </section>
 
-
-  <!--  -->
-  <!--  -->
-  <!--  -->
-  <!--  -->
-  <!-- value of medical form for form for updating the old gods ........ -->
-
-  <form action="../../Controller/update.php" method="POST">
+  <form action="../../Controller/update.php" method="POST" class="">
     <section
       class="poppins flex flex-wrap px-3 uppercase [&>section]:basis-52 md:[&>section]:mx-0 [&>section]:mx-auto md:gap-5 gap-y-7">
       <!-- fullname -->
@@ -380,152 +409,11 @@ if (isset($_POST['submit'])) {
       </article>
       <input type="hidden" name="id" value="<?= $id ?>">
 
-      <button
 
-        id="save_mode"
-        name="save_mode"
-        class="poppins border-1 custom-hover hover:bg-[#06118e] place-self-center uppercase mt-5 justify-center cursor-pointer px-5 py-3 flex gap-x-3 rounded-lg">
-        <p>save edit</p>
-        <img
-
-          src="../assets/icons/check-icon.svg"
-          alt="check-icon" />
-      </button>
   </form>
 </section>
 
-<section class="flex place-content-center ">
-
-  <button
-    id="edit_mode"
-    class="poppins border-1 custom-hover hover:bg-[#06118e] place-self-center uppercase mt-5 justify-center cursor-pointer px-5 py-3 flex gap-x-3 rounded-lg">
-    <p>edit form</p>
-    <img
-      class="invert size-5"
-      src="../assets/icons/edit-icon.svg"
-      alt="check-icon" />
-  </button>
-  <!-- editing mode section -->
-
-
-
-
-  <button
-    id="cancel_mode"
-    class="bg-[#fb4949] poppins place-self-center uppercase mt-5 justify-center cursor-pointer text-white px-5 py-3 flex gap-x-3 rounded-lg">
-    <p>cancel edit</p>
-    <img src="../assets/icons/delete-icon.svg" alt="check-icon" />
-  </button>
-
-
-</section>
-
-</section>
-<script>
-  const food = <?= json_encode($food) ?>;
-  const insect = <?= json_encode($insect) ?>;
-  const asthma = <?= json_encode($asthma) ?>;
-  const epilepsy = <?= json_encode($epilepsy) ?>;
-
-
-  if (food === "yes") {
-    document.getElementById("new_food_allergies_yes").checked = true;
-    document.getElementById("new_food_allergies_no").checked = false;
-  }
-
-  if (food == "no") {
-    document.getElementById("new_food_allergies_yes").checked = false;
-    document.getElementById("new_food_allergies_no").checked = true;
-  }
-
-  if (insect === "yes") {
-    document.getElementById("new_insect_allergy_yes").checked = true;
-    document.getElementById("new_insect_allergy_no").checked = false;
-  }
-
-  if (insect == "no") {
-    document.getElementById("new_insect_allergy_yes").checked = false;
-    document.getElementById("new_insect_allergy_no").checked = true;
-  }
-
-  if (asthma == "yes") {
-    document.getElementById("new_asthma_yes").checked = true;
-    document.getElementById("new_asthma_no").checked = false;
-    document.getElementById("new_asthma_mild").checked = false;
-    document.getElementById("new_asthma_moderate").checked = false;
-    document.getElementById("new_asthma_severe").checked = false;
-  }
-  if (asthma == "no") {
-    document.getElementById("new_asthma_yes").checked = false;
-    document.getElementById("new_asthma_no").checked = true;
-    document.getElementById("new_asthma_mild").checked = false;
-    document.getElementById("new_asthma_moderate").checked = false;
-    document.getElementById("new_asthma_severe").checked = false;
-  }
-  if (asthma == "mild") {
-    document.getElementById("new_asthma_yes").checked = false;
-    document.getElementById("new_asthma_no").checked = false;
-    document.getElementById("new_asthma_mild").checked = true;
-    document.getElementById("new_asthma_moderate").checked = false;
-    document.getElementById("new_asthma_severe").checked = false;
-  }
-  if (asthma == "moderate") {
-    document.getElementById("new_asthma_yes").checked = false;
-    document.getElementById("new_asthma_no").checked = false;
-    document.getElementById("new_asthma_mild").checked = false;
-    document.getElementById("new_asthma_moderate").checked = true;
-    document.getElementById("new_asthma_severe").checked = false;
-  }
-  if (asthma == "severe") {
-    document.getElementById("new_asthma_yes").checked = false;
-    document.getElementById("new_asthma_no").checked = false;
-    document.getElementById("new_asthma_mild").checked = false;
-    document.getElementById("new_asthma_moderate").checked = false;
-    document.getElementById("new_asthma_severe").checked = true;
-  }
-
-  if (epilepsy == "yes") {
-    document.getElementById("new_epilepsy_yes").checked = true;
-    document.getElementById("new_epilepsy_no").checked = false;
-    document.getElementById("new_epilepsy_mild").checked = false;
-    document.getElementById("new_epilepsy_moderate").checked = false;
-    document.getElementById("new_epilepsy_severe").checked = false;
-  }
-  if (epilepsy == "no") {
-    document.getElementById("new_epilepsy_yes").checked = false;
-    document.getElementById("new_epilepsy_no").checked = true;
-    document.getElementById("new_epilepsy_mild").checked = false;
-    document.getElementById("new_epilepsy_moderate").checked = false;
-    document.getElementById("new_epilepsy_severe").checked = false;
-  }
-  if (epilepsy == "mild") {
-    document.getElementById("new_epilepsy_yes").checked = false;
-    document.getElementById("new_epilepsy_no").checked = false;
-    document.getElementById("new_epilepsy_mild").checked = true;
-    document.getElementById("new_epilepsy_moderate").checked = false;
-    document.getElementById("new_epilepsy_severe").checked = false;
-  }
-  if (epilepsy == "moderate") {
-    document.getElementById("new_epilepsy_yes").checked = false;
-    document.getElementById("new_epilepsy_no").checked = false;
-    document.getElementById("new_epilepsy_mild").checked = false;
-    document.getElementById("new_epilepsy_moderate").checked = true;
-    document.getElementById("new_epilepsy_severe").checked = false;
-  }
-  if (epilepsy == "severe") {
-    document.getElementById("new_epilepsy_yes").checked = false;
-    document.getElementById("new_epilepsy_no").checked = false;
-    document.getElementById("new_epilepsy_mild").checked = false;
-    document.getElementById("new_epilepsy_moderate").checked = false;
-    document.getElementById("new_epilepsy_severe").checked = true;
-
-  }
-</script>
-
-<script src="../script/edit.js"></script>
+<script src="../script/scriptnavbar.js"></script>
 </body>
-<script src="../script/medicalinfo.js">
-
-</script>
 
 </html>
