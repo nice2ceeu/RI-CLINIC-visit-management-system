@@ -28,7 +28,6 @@ document.addEventListener("click", (e) => {
   }
 
   if (e.target.id === "other-yes") {
-    alert("??");
     const specify = document.getElementById("specify");
     const opacity = document.getElementById("specifyOpacity");
     if (specify) {
@@ -38,7 +37,6 @@ document.addEventListener("click", (e) => {
   }
 
   if (e.target.id === "allergy-no") {
-    alert("??");
     const allergy = document.getElementById("allergy");
 
     if (allergy) {
@@ -76,5 +74,27 @@ document.addEventListener("click", (e) => {
       reason.disabled = false;
       hospitalize.classList.remove("opacity-30");
     }
+  }
+});
+
+const gender = document.getElementById("gender");
+const femaleDiv = document.getElementById("femaleDiv");
+const weight = document.getElementById("weight");
+const height = document.getElementById("height");
+const firstMens = document.getElementById("firstMens");
+
+gender.addEventListener("blur", (e) => {
+  const Currentvalue = e.target.value;
+
+  if (Currentvalue === "female") {
+    femaleDiv.classList.remove("opacity-40");
+    weight.disabled = false;
+    height.disabled = false;
+    firstMens.disabled = false;
+  } else {
+    femaleDiv.classList.add("opacity-40");
+    weight.disabled = true;
+    height.disabled = true;
+    firstMens.disabled = true;
   }
 });

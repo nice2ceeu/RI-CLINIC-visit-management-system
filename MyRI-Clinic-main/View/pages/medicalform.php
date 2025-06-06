@@ -13,8 +13,8 @@ include('../components/navbar.php');
 
 <section class="overflow-x-hidden md:sm:ml-24 lg:ml-72 md:h-dvh xl:lg:ml-82">
   <section class="relative py-7.5 pt-12">
-    <h1 class="krona uppercase bg-white lg:ml-12 px-5 inline z-20 text-3xl">
-      Medical form
+    <h1 class="krona uppercase bg-white lg:ml-12 px-5 inline z-20 text-2xl">
+      student information
     </h1>
     <hr class="absolute z-[-1] w-full top-17" />
   </section>
@@ -22,7 +22,7 @@ include('../components/navbar.php');
   <form action="../../Controller/medform.php" method="POST">
     <!-- form for student information........ -->
     <section
-      class="poppins flex flex-wrap px-3 uppercase [&>section]:basis-52 md:[&>section]:mx-0 [&>section]:mx-auto md:gap-5 gap-y-7">
+      class="poppins flex flex-col md:flex-row md:flex-wrap gap-4 px-3 uppercase">
       <!-- namee of student -->
 
       <section class="flex">
@@ -32,22 +32,20 @@ include('../components/navbar.php');
           for="fullname">full name: </label>
         <input
           id="fullname"
-          class=" border-b-1 focus:border-b-1  px-2 focus:outline-0 w-82"
+          class=" border-b-1 focus:border-b-1  px-2 focus:outline-0 "
           name=" fullname"
           required
           type="text" />
       </section>
-
       <!-- gender of student -->
-
       <section class="flex">
         <label
           id="label"
           class="text-nowrap mr-1 font-semibold"
           for="gender">gender: </label>
         <input
-          id="gender-yes"
-          class="border-b-1 focus:border-b-1  px-2 focus:outline-0 w-32"
+          id="gender"
+          class="border-b-1 focus:border-b-1  px-2 focus:outline-0"
           name="gender"
           required
           type="text" />
@@ -142,14 +140,14 @@ include('../components/navbar.php');
       </section>
 
       <!--person to contact -->
-      <section class="flex">
+      <section class="flex flex-col md:flex-row">
         <label
           id="label"
           class="text-nowrap mr-1 font-semibold"
           for="emergencyContact">person to contact in case of emergency: </label>
         <input
           id="emergencyContact"
-          class=" border-b-1 focus:border-b-1  px-2 focus:outline-0 w-62"
+          class=" border-b-1 focus:border-b-1  px-2 focus:outline-0 "
           name="emergencyContact"
           required
           type="name" />
@@ -190,14 +188,14 @@ include('../components/navbar.php');
     <section class="relative py-7.5 pt-12">
 
       <h1 class="krona uppercase bg-white lg:ml-12 px-5 inline z-20 md:text-lg">
-        STUDENT MEDICAL HISTORY
+        MEDICAL HISTORY
       </h1>
       <hr class="absolute z-[-1] w-full top-15" />
     </section>
 
-    <section class="poppins capitalize flex gap-2 justify-evenly">
+    <section class="poppins flex flex-col md:flex-row capitalize gap-3 justify-evenly">
       <!-- First column -->
-      <section class="poppins  w-full flex gap-2 justify-evenly">
+      <section class="poppins w-full flex gap-2 justify-evenly">
         <div class="flex gap-2 w-full p-3 flex-col [&>div]:grid [&>div]:items-center [&>div]:p-2 [&>div]:grid-cols-[1fr_30px_30px] [&>div]:grid-row-auto [&>div]:gap-5 [&>div]:border-1">
           <div class="">
             <div></div>
@@ -255,8 +253,9 @@ include('../components/navbar.php');
             <input id="hearing-no" name="hearing" value="no" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
           </div>
         </div>
-
-        <!-- Second column -->
+      </section>
+      <!-- Second column -->
+      <section class="poppins w-full flex gap-2 justify-evenly">
         <div class="flex gap-2  w-full  p-3 flex-col [&>div]:grid [&>div]:items-center [&>div]:p-2 [&>div]:grid-cols-[1fr_30px_30px] [&>div]:grid-row-auto [&>div]:gap-5 [&>div]:border-1">
           <div class="">
             <div></div>
@@ -316,89 +315,90 @@ include('../components/navbar.php');
         </div>
       </section>
     </section>
-
-
+    <!--form for STUDENT MEDICAL HISTORY ........ -->
     <!-- other information for medical History  -->
-
-
-    <section class="flex gap-y-5 flex-col poppins  px-3 [&>section>label]:font-semibold">
-      <section id="specifyOpacity" class="flex ">
+    <section class="flex gap-y-5 flex-col poppins px-3 [&>section>label]:font-semibold">
+      <section id="specifyOpacity" class="flex flex-col md:flex-row">
         <label
           id="label"
           class="text-nowrap mr-1 font-semibold"
           for="specify">IF YES please specify: </label>
         <input
           id="specify"
-          class=" border-b-1 focus:border-b-1  px-2 focus:outline-0 w-[50rem]"
+          class=" border-b-1 focus:border-b-1  px-2 focus:outline-0 grow-1"
           name="specify"
           required
           type="text" />
       </section>
+      <!--  -->
+      <!--  -->
 
-      <section class="flex">
+      <section class="flex flex-col lg:flex-row  mt-10">
         <label
           id="label"
-          class="text-nowrap mr-1 font-semibold"
+          class="mr-1 font-semibold text-wrap lg:text-nowrap"
           for="underMedication">Are you under under medication treatment now?
           if so, what is the condition being treated:</label>
         <input
           id="underMedication"
-          class=" border-b-1 focus:border-b-1  px-2 focus:outline-0 w-[50rem]"
+          class=" border-b-1 focus:border-b-1 px-2 focus:outline-0 grow-1"
           name="underMedication"
           required
           type="text" />
       </section>
 
-      <section class="flex">
+      <section class="flex flex-col lg:flex-row ">
         <label
           id="label"
           class="text-nowrap mr-1 font-semibold"
           for="pastMedication">MEDICATION that are already take form the past:</label>
         <input
           id="pastMedication"
-          class=" border-b-1 focus:border-b-1  px-2 focus:outline-0 w-[50rem]"
+          class=" border-b-1 focus:border-b-1  px-2 focus:outline-0 grow-1"
           name="pastMedication"
           required
           type="text" />
       </section>
-
-      <section class="flex">
+      <section class="flex flex-col lg:flex-row ">
         <label
           id="label"
           class="text-nowrap mr-1 font-semibold uppercase"
           for="currentMedication">Current medication:</label>
         <input
           id="currentMedication"
-          class=" border-b-1 focus:border-b-1  px-2 focus:outline-0 w-[50rem]"
+          class=" border-b-1 focus:border-b-1  px-2 focus:outline-0 grow-1"
           name="currentMedication"
           required
           type="text" />
       </section>
 
 
-      <section class="flex">
+      <section class="flex flex-col  lg:flex-row  mt-10">
         <label
           id="label"
-          class="text-nowrap mr-1 font-semibold uppercase"
+          class="text-wrap lg:text-nowrap mr-1 font-semibold uppercase"
           for="allergy">do you have allergy( insect, foods , medications):</label>
-        <label
-          id="label"
-          class="text-nowrap mr-1 font-semibold uppercase"
-          for="allergy-no">yes</label>
-        <input id="allergy-yes" name="allergy" value="yes" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
-        <label
-          id="label"
-          class="text-nowrap mr-1 font-semibold uppercase"
-          for="allergy-no">no</label>
-        <input id="allergy-no" name="allergy" value="no" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
+        <section class="flex items-center gap-1.5">
+          <label
+            id="label"
+            class="text-nowrap mr-1 font-semibold uppercase"
+            for="allergy-no">yes</label>
+          <input id="allergy-yes" name="allergy" value="yes" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
+          <label
+            id="label"
+            class="text-nowrap mr-1 font-semibold uppercase"
+            for="allergy-no">no</label>
+          <input id="allergy-no" name="allergy" value="no" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
+        </section>
         <input
           id="allergy"
-          class=" border-b-1 focus:border-b-1 px-2 focus:outline-0 w-[50rem]"
+          class=" border-b-1 focus:border-b-1 px-2 focus:outline-0 mt-5 md:mt-0 grow-1"
           name="allergy"
+          placeholder="input what allergy is it"
           required
           type="text" />
       </section>
-      <div class="relative w-full">
+      <div class="relative w-full mt-5">
         <label
           id="label"
           class=" inline top-[-10px] left-2 absolute px-5 bg-white text-nowrap mr-1 font-semibold uppercase"
@@ -411,70 +411,89 @@ include('../components/navbar.php');
           <option value="germanMeasles">german measles</option>
         </select>
       </div>
-      <section class="flex ">
+
+
+
+      <!-- immunization -->
+      <section class="flex flex-col md:flex-wrap md:flex-row [&>section]:flex  [&>section]:items-center [&>section]:gap-3">
         <label
           id="label"
           class="text-nowrap mr-1 font-semibold uppercase"
           for="immunization">immunization</label>
-        <label
-          id="label"
-          class="text-nowrap mr-1 font-semibold uppercase"
-          for="bcg">BCG</label>
-        <input id="bcg" name="bcg" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
+        <section>
+          <label
+            id="label"
+            class="text-nowrap mr-1 font-semibold uppercase"
+            for="bcg">BCG</label>
+          <input id="bcg" name="bcg" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
+        </section>
+        <section>
+          <label
+            id="label"
+            class="text-nowrap mr-1 font-semibold uppercase"
+            for="dpt">DPT</label>
+          <input id="dpt" name="dpt" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
+        </section>
 
-        <label
-          id="label"
-          class="text-nowrap mr-1 font-semibold uppercase"
-          for="dpt">DPT</label>
-        <input id="dpt" name="dpt" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
+        <section>
+          <label
+            id="label"
+            class="text-nowrap mr-1 font-semibold uppercase"
+            for="opv">OPV</label>
+          <input id="opv" name="opv" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
+        </section>
+        <section>
 
-        <label
-          id="label"
-          class="text-nowrap mr-1 font-semibold uppercase"
-          for="opv">OPV</label>
-        <input id="opv" name="opv" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
+          <label
+            id="label"
+            class="text-nowrap mr-1 font-semibold uppercase"
+            for="hep-b">HEP.B</label>
+          <input id="hep-b" name="hep-b" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
 
+        </section>
+        <section>
 
-        <label
-          id="label"
-          class="text-nowrap mr-1 font-semibold uppercase"
-          for="hep-b">HEP.B</label>
-        <input id="hep-b" name="hep-b" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
-
-
-        <label
-          id="label"
-          class="text-nowrap mr-1 font-semibold uppercase"
-          for="measleVaccine">MEASLE VACCINE</label>
-        <input id="measleVaccine" name="measleVaccine" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
-
-
-        <label
-          id="label"
-          class="text-nowrap mr-1 font-semibold uppercase"
-          for="fluVaccine">FLU VACCINE</label>
-        <input id="fluVaccine" name="fluVaccine" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
-
-
-        <label
-          id="label"
-          class="text-nowrap mr-1 font-semibold uppercase"
-          for="varicella">VARICELLA</label>
-        <input id="varicella" name="varicella" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
+          <label
+            id="label"
+            class="text-nowrap mr-1 font-semibold uppercase"
+            for="measleVaccine">MEASLE VACCINE</label>
+          <input id="measleVaccine" name="measleVaccine" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
 
 
-        <label
-          id="label"
-          class="text-nowrap mr-1 font-semibold uppercase"
-          for="mmr">MMR</label>
-        <input id="mmr" name="mmr" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
-        <label
-          id="label"
-          class="text-nowrap mr-1 font-semibold uppercase"
-          for="etc">etc,</label>
-        <input id="etc" name="etc" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
+        </section>
+        <section>
+          <label
+            id="label"
+            class="text-nowrap mr-1 font-semibold uppercase"
+            for="fluVaccine">FLU VACCINE</label>
+          <input id="fluVaccine" name="fluVaccine" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
+
+        </section>
+        <section>
+
+          <label
+            id="label"
+            class="text-nowrap mr-1 font-semibold uppercase"
+            for="varicella">VARICELLA</label>
+          <input id="varicella" name="varicella" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
+        </section>
+        <section>
+          <label
+            id="label"
+            class="text-nowrap mr-1 font-semibold uppercase"
+            for="mmr">MMR</label>
+          <input id="mmr" name="mmr" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
+        </section>
+        <section>
+          <label
+            id="label"
+            class="text-nowrap mr-1 font-semibold uppercase"
+            for="etc">etc,</label>
+        </section>
       </section>
-      <section>
+
+      <!--  -->
+      <section class="mt-5">
         <label
           id="label"
           class="text-nowrap mr-1 font-semibold uppercase"
@@ -509,57 +528,57 @@ include('../components/navbar.php');
     </section>
 
     <!-- hospitalized  -->
-
-    <section>
-      <section class="flex  poppins gap-y-5 gap-x-1.5 mt-5  poppins px-3">
+    <section class="mt-20">
+      <section class="flex  flex-col poppins poppins px-3">
         <label
           id="label"
-          class="text-nowrap mr-1 font-semibold"
+          class=" md:text-nowrap mr-1 font-semibold"
           for="Hospitalized">Have you been hospitalized? </label>
 
         <h6>
           ( accident, illness, surgery, fracture, etc )
         </h6>
-        <label
-          id="label"
-          class="text-nowrap mr-1 font-semibold"
-          for="yes">yes</label>
-        <input id="hospitalized-yes" name="hospitalized" value="yes" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
-        <label
-          id="label"
-          class="text-nowrap mr-1 font-semibold"
-          for="no">no</label>
-        <input id="hospitalized-no" name="hospitalized" value="no" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
+
+        <!-- if yes input combo box -->
+        <div class="flex items-center gap-1 uppercase ">
+          <label
+            id="label"
+            class="text-nowrap mr-1 font-semibold"
+            for="yes">yes</label>
+          <input id="hospitalized-yes" name="hospitalized" value="yes" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
+          <label
+            id="label"
+            class="text-nowrap mr-1 font-semibold"
+            for="no">no</label>
+          <input id="hospitalized-no" name="hospitalized" value="no" type="radio" class="appearance-none checked:bg-[#06118e8a] w-5 h-5 border border-gray-500 ">
+        </div>
       </section>
 
-      <!-- hospitalized  -->
-      <section
-        id=""
-        class="[&>section]:grid  poppins px-3 mt-1 [&>section]:grid-cols-[22rem_1fr] [&>section]:gap-5 [&>section]:grid-row-auto">
-        <section class="text-center font-semibold p-3 uppercase">
-          <div>year</div>
-          <div>reason</div>
-        </section>
+      <!-- hospitalized  ibnput field for user   -->
 
-        <section id="hospitalize" class="text-center  p-3">
+      <section id="hospitalize" class="uppercase px-3">
+        <div class="flex flex-col gap-2 md:mt-5">
+          <p class="font-semibold">year</p>
           <input
             id="year"
-            class=" border-b-1  focus:border-b-1 px-2 focus:outline-0 w-full"
+            class=" border-b-1  focus:border-b-1 px-2 focus:outline-0 w-42 "
             name="year"
             required
             type="date" />
-
+        </div>
+        <div class="flex flex-col gap-2 md:mt-5">
+          <p class="font-semibold">reason </p>
           <input
             id="reason"
-            class=" border-b-1  focus:border-b-1 px-2 focus:outline-0 w-full"
+            class=" border-b-1  focus:border-b-1 px-2 focus:outline-0 grow-1"
             name="reason"
             required
             type="text" />
-        </section>
-
-        <!-- Family medical History -->
-
+        </div>
       </section>
+
+      <!-- Family medical History -->
+
       <section class="space-y-2 w-full mt-5 px-3">
         <h1 class="font-semibold text-xl">Family medical History</h1>
         <h6 class="block">Type all the condition or illness that your family has (example asthma, diabetes, tb, migraine, hypertension)</h6>
@@ -575,8 +594,9 @@ include('../components/navbar.php');
 
     </section>
     <!-- for female  -->
-    <section class="flex gap-2 poppins w-full mt-5 px-3">
-      <h1 class="font-semibold uppercase">for female: menarche</h1>
+    <section id="femaleDiv"
+      class="flex flex-col md:flex-row gap-2 poppins w-full mt-5 px-3">
+      <h1 class=" text-nowrap font-semibold uppercase">for female: menarche</h1>
       <section>
         <label for="">height(cm.)</label>
         <input
@@ -600,7 +620,7 @@ include('../components/navbar.php');
       <section class="">
         <label for="">first menstrual period</label>
         <input
-          id="weight"
+          id="firstMens"
           class=" border-b-1  focus:border-b-1 px-2 focus:outline-0 w-38"
           name="weight"
           required
@@ -609,16 +629,16 @@ include('../components/navbar.php');
     </section>
 
     <!-- covid 19 vaccine -->
-    <section class="px-3 space-y-1 mt-5 w-full">
-      <div class="flex gap-1 [&>p]:p-3 [&>p]:w-full [&>p]:border-1">
+    <section class="flex md:flex-col px-3 gap-2 mt-5 ">
+      <div class="flex flex-col md:flex-row gap-1 [&>p]:p-3 [&>p]:w-full [&>p]:border-1">
         <p>Date of 1<sup>st</sup> dose</p>
         <p>Date of 1<sup>st</sup> dose</p>
-        <p>vaccine manufacturer</p>
+        <p class="text-nowrap">vaccine manufacturer</p>
         <p>booster</p>
         <p>(+) Covid (when)</p>
       </div>
 
-      <div class="flex gap-1 [&>input]:p-3 [&>input]:w-full ">
+      <div class="flex flex-col md:flex-row [&>input]:p-3 [&>input]:w-full  gap-1.5">
         <input type="date" name="firstDose" class="appearance-none border-b-1 focus:border-b-1 focus:outline-0"></input>
         <input type="date" name="secondDose" class="appearance-none border-b-1 focus:border-b-1 focus:outline-0"></input>
         <input type="text" name="vaccineBrand" class="appearance-none border-b-1 focus:border-b-1 focus:outline-0"></input>
@@ -629,16 +649,16 @@ include('../components/navbar.php');
     <!-- SUBMIT BUTTON FOR MEDICAL FORM  -->
     <button
       name="submit"
-      class="bg-primary poppins place-self-center mt-5 w-1/5 justify-center cursor-pointer text-white px-5 py-3 flex gap-x-3 rounded-lg">
+      class="bg-primary poppins place-self-center mt-5 w-1/3 justify-center cursor-pointer text-white px-5 py-3 flex gap-x-3 rounded-lg">
       <p>SUBMIT</p>
       <img src="../assets/icons/check-icon.svg" alt="check-icon" />
     </button>
 
   </form>
 </section>
-<script src="../script/medform.js">
 
-</script>
 </body>
+
+<script src="../script/medform.js"></script>
 
 </html>

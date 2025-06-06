@@ -1,5 +1,3 @@
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
 <header
   class="bg-primary flex krona text-3xl justify-between px-7 py-4.5 items-center text-white md:hidden">
   <img
@@ -9,7 +7,6 @@
     alt="" />
 
   <h1 id="home-btn" class="cursor-pointer">MyRi Clinic</h1>
-
   <img
     id="menu-btn"
     class="z-21 size-9 cursor-pointer invert"
@@ -44,7 +41,7 @@
       <!-- current patientn in clinic link -->
       <a
         class="flex gap-x-4 px-3.5 py-3.5 leading-6 hover:bg-[#ffffff1f] rounded-lg md:flex md:justify-center lg:justify-start"
-        href="../pages/Current-Patients.php"><img src="../assets/icons/visit-icon.svg" alt="visitor-icon" />
+        href="../pages/Current-Patients.php"><img src="../assets/icons/inside-icon.svg" alt="visitor-icon" />
         <p class="md:hidden lg:block">Current Patients</p>
       </a>
 
