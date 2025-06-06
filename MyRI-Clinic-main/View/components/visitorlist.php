@@ -2,15 +2,15 @@
   class="uppercase mt-22 px-8.5 ">
   <table class="w-full poppins">
     <thead class="[&>tr>th]:px-4 text-left [&>tr>th]:pb-22">
-      <tr class="">
-
+      <tr>
         <th>ID</th>
-        <th>FULL NAME</th>
-        <th>Purpose of VISIT</th>
+        <th>Name of studnet</th>
+        <th>grade and section</th>
+        <th>complaint</th>
+        <th>treatment</th>
         <th>TIME IN</th>
-        <th>TIME OUT</th>
+        <th>TIME out</th>
         <th>DATE</th>
-
       </tr>
 
     </thead>
@@ -35,11 +35,13 @@
             echo "<td>" . htmlspecialchars($row['checkin']) . "</td>";
             echo "<td>" . htmlspecialchars($row['checkout']) . "</td>";
             echo "<td>" . htmlspecialchars($row['_date']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['_date']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['_date']) . "</td>";
             echo "</tr>";
           }
         } else {
           echo "<tr '>";
-          echo "<td colspan='7' class='text-center bg-[#ffc5c541]'>" . "No data available." . "</td>";
+          echo "<td colspan='9' class='text-center bg-[#ffc5c541]'>" . "No Current Patient." . "</td>";
           echo "</tr>";
         }
       } catch (mysqli_sql_exception $e) {

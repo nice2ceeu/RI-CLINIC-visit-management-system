@@ -37,15 +37,22 @@
       <!-- visitor link -->
       <a
         class="flex gap-x-4 px-3.5 py-3.5 leading-6 hover:bg-[#ffffff1f] rounded-lg md:flex md:justify-center lg:justify-start"
-        href="../pages/visitor.php"><img src="../assets/icons/visit-icon.svg" alt="visitor-icon" />
-        <p class="md:hidden lg:block">visitor</p>
+        href="../pages/Clinic-Patient.php"><img src="../assets/icons/visit-icon.svg" alt="visitor-icon" />
+        <p class="md:hidden lg:block">Clinic Patient</p>
+      </a>
+
+      <!-- current patientn in clinic link -->
+      <a
+        class="flex gap-x-4 px-3.5 py-3.5 leading-6 hover:bg-[#ffffff1f] rounded-lg md:flex md:justify-center lg:justify-start"
+        href="../pages/Current-Patients.php"><img src="../assets/icons/visit-icon.svg" alt="visitor-icon" />
+        <p class="md:hidden lg:block">Current Patients</p>
       </a>
 
       <!-- visit history -->
       <a
         class="flex gap-x-4 px-3.5 py-3.5 leading-6 hover:bg-[#ffffff1f] rounded-lg md:flex md:justify-center lg:justify-start"
-        href="../pages/visithistory.php"><img src="../assets/icons/history-icon.svg" alt="history-icon" />
-        <p class="md:hidden lg:block">visit history</p>
+        href="../pages/Patient-History.php"><img src="../assets/icons/history-icon.svg" alt="history-icon" />
+        <p class="md:hidden lg:block">visitor history</p>
       </a>
       <!-- medical forn  -->
       <a
